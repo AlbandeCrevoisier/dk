@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE contribution SYSTEM "tp.dtd">
 <contributors>
   <contribution cname="DarkAngel180">
-    <text date="12-09-2016">The necessary threshold is lt 20 and gt 10
-      <status>Approved</status>
-    </text>
+    <text date="12-09-2016">The necessary threshold is lt 20 and gt 10</text>
+    <status>Approved</status>
   </contribution>
   <contribution cname="HelloKitty" />
   <contribution cname="Anonymous">
