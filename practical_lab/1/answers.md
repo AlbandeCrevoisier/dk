@@ -37,4 +37,16 @@ See tp.dtd
 
 ### Question 1 ###
 
+Read
+
+### Question 2 ###
+
+See map.osm
+
+### Question 3 ###
+
+See osm_parser.go
+
+### Question 4 ###
+
 
