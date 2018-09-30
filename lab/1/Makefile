@@ -13,4 +13,3 @@ execute:
 clean:
 	rm -rf *.class *.jar
 	rm -rf out/
-
