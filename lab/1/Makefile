@@ -6,7 +6,7 @@ rs.jar: RecoSys.class
 RecoSys.class:
 	hadoop com.sun.tools.javac.Main RecoSys.java
 
-execute:
+run:
 	rm -rf out/
 	hadoop jar rs.jar RecoSys in out
 
