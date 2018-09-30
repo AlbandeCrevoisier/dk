@@ -11,3 +11,5 @@ Make:
 * `make` : compile and compress
 * `make execute` : run code on example in/
 * `make clean` : clean everything
+
+Note: `WordCount.java` is an example of how to use Apache Hadoop in java, the file for the lab is `RecoSys.java`.
