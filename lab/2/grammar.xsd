@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="files">
+  <xs:element name="file" minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="consultation" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="symptom" minOccurs="1" maxOccurs="unbounded" />
+      <xs:element name="prescription" minOccurs="0" maxOccurs="1">
+        <xs:element name="medication" minOccurs="0" maxOccurs="unbounded" />
+      </xs:element>
+    </xs:element>
+  </xs:element>
+  <xs:element name="person" minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="fname" />
+    <xs:element name="lname" />
+  </xs:element>
+  <xs:element name="person" minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="fname" />
+    <xs:element name="lname" />
+    <xs:element name="telnum" />
+  </xs:element>
+</xs:element>
+
+</xs:schema>
