@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 	"encoding/xml"
 	"github.com/gomodule/redigo/redis"
 )
@@ -38,7 +39,10 @@ func main() {
 				conn.Do("publish", et.Attr[0].Value, id)
 			}
 		case xml.CharData:
-			conn.Do("set", "news:" + id + ":body", string(et))
+			str := strings.TrimSpace(string([]byte(et)))
+			if str != "" {
+				conn.Do("set", "news:" + id + ":body", str)
+			}
 		}
 	}
 }
