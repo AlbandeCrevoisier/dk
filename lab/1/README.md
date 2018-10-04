@@ -71,7 +71,7 @@ access issue).
 
 ## Sample output of the client ##
 
-Input is preceded by a `>`.
+User input is preceded by a `>`:
 
 ```
 > subs tag1
