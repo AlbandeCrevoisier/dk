@@ -71,17 +71,19 @@ access issue).
 
 ## Sample output of the client ##
 
+Input is preceded by a `>`.
+
 ```
-subs tag1
+> subs tag1
 usage: [sub | unsub] <channel name>
-sub tag1
+> sub tag1
 Subscribed to: tag1
-sub tag2
+> sub tag2
 Subscribed to: tag2
 tag1 --- News 1 --- This is the first news.
 tag2 --- News 1 --- This is the first news.
 tag1 --- News 2 --- This is the second news.
 tag2 --- News 3 --- This is the third news.
-unsub tag1
+> unsub tag1
 Unsubscribed to: tag1
 ```
