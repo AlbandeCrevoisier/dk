@@ -26,8 +26,24 @@ func getChanName(c chan string, conn redis.Conn) {
 	}
 }
 
+func newsPrinter(printOrder chan string) {
+	conn, err := redis.Dial("tcp", "localhost:6379")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer conn.Close()
+	for {
+		w := strings.Split(<-printOrder, "ð")
+		tag, news_id := w[0], w[1]
+		title, _ := redis.String(conn.Do("get", "news:" + news_id))
+		body, _ := redis.String(conn.Do("get", "news:" + news_id + ":body"))
+		fmt.Println(tag + " --- " + title + " --- " + body)
+	}
+}
+
 /* Subscribe to and print the content of the given channel. */
-func subChan(chanName string, conn redis.Conn) {
+func subChan(chanName string, printOrder chan string, conn redis.Conn) {
 	psc := redis.PubSubConn{Conn: conn}
 	psc.Subscribe(chanName)
 	for {
@@ -44,21 +60,25 @@ func subChan(chanName string, conn redis.Conn) {
 				return
 			}
 		case redis.Message:
-			fmt.Println(r.Channel + ":" + string(r.Data))
+			/* Hack to keep atomic operations: use a separator that should
+			not appear in the tag nor the title in order to do only one send. */
+			printOrder <- r.Channel + "ð" + string(r.Data)
 		}
 	}
 }
 
 func main() {
 	c := make(chan string)
+	printOrder := make(chan string)
 	conn, err := redis.Dial("tcp", "localhost:6379")
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	defer conn.Close()
+	go newsPrinter(printOrder)
 	go getChanName(c, conn)
 	for {
-		go subChan(<- c, conn)
+		go subChan(<-c, printOrder, conn)
 	}
 }
