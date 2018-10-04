@@ -64,3 +64,24 @@ of the corresponding news. However, the code would have been twice as long and
 I'd rather keep it short for the sake of quick readability: it is only a lab,
 not a fully fledged project.
 
+Another issue is that once a client unsubscribed from one channel, it changes
+the context of the redis connection, which basically blocks the connection if
+the client is still subscribed to other channels (may be a redis concurrent
+access issue).
+
+## Sample output of the client ##
+
+```
+subs tag1
+usage: [sub | unsub] <channel name>
+sub tag1
+Subscribed to: tag1
+sub tag2
+Subscribed to: tag2
+tag1 --- News 1 --- This is the first news.
+tag2 --- News 1 --- This is the first news.
+tag1 --- News 2 --- This is the second news.
+tag2 --- News 3 --- This is the third news.
+unsub tag1
+Unsubscribed to: tag1
+```
