@@ -40,8 +40,8 @@ an identifier.
 ```
 
 ---
-Everything below this ruler has been done after midnight, please disregard for
-grading.
+**Everything below this ruler has been done after midnight, please disregard for
+grading.**
 
 6. Name of people whose information contains "Opera":
 ```
@@ -53,5 +53,3 @@ grading.
 if the info exists:
 ```
 ```
-
----
