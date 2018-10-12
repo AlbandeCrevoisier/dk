@@ -16,7 +16,7 @@ an identifier.
 `show collections` to find the one we need, `moviepeopleten` here, then:
 `db.moviepeopleten.find()` to get all its documents.
 
-## 2. Import, query ##
+## Import, query ##
 
 2. find Anabela: 
 ```
@@ -38,6 +38,20 @@ an identifier.
 > db.moviepeople.find({"info.height": {$gt: "170 cm", $gt: "5' 5"}}).count()
 197
 ```
+
+---
+Everything below this ruler has been done after midnight, please disregard for
+grading.
+
 6. Name of people whose information contains "Opera":
 ```
+```
 
+## More querying ##
+
+7. For each person whose birthplace is known, find lat:long:pop of that city,
+if the info exists:
+```
+```
+
+---
