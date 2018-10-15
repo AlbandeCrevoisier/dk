@@ -40,7 +40,7 @@ an identifier.
 ```
 
 ---
-**Everything below this ruler has been done after midnight, please disregard for
+**Everything below this ruler has been done after the deadline, please disregard for
 grading.**
 
 6. Name of people whose information contains "Opera":
