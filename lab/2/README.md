@@ -5,7 +5,8 @@
 I'm on Archlinux and mongodb management can be done through packages, so the set
 up commands are rather simple:
 
-1.
+### 1. Start ###
+
 `systemctl start mongodb.service` to start the server via systemd, runs on port
 27017.
 `mongoimport moviepeople-10.json -c moviepeopleten` to import the JSON file in
@@ -18,7 +19,7 @@ an identifier.
 
 ## Import, query ##
 
-### 2. find Anabela ###
+### 2. Find Anabela ###
 
 ```
 > db.moviepeople.find({"person-name": /Anabela/})
