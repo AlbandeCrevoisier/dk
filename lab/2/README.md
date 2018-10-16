@@ -40,11 +40,27 @@ an identifier.
 ```
 
 ---
-**Everything below this ruler has been done after the deadline, please disregard for
-grading.**
+**Everything below this ruler has been done after the deadline, please disregard
+for grading.**
 
 6. Name of people whose information contains "Opera":
+
+First, create a text index on all the fields of the document that have a string
+field-value:
 ```
+> db.moviepeople.createIndex({"$**":"text"})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+```
+
+Then, make a text query:
+```
+> db.moviepeopleten.find({$text: {$search: "opera"}}, {"person-name" : 1})
+{ "_id" : ObjectId("5bc0cb4eb534c7dbe6e1f6df"), "person-name" : "Hemsworth, Liam" }
 ```
 
 ## More querying ##
