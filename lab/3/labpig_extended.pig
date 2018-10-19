@@ -1,13 +1,18 @@
 A = LOAD '/home/alban/telecom/dk/architectures/lab/3/ml-20m/ratings.csv'
 	USING PigStorage(',')
 	AS (userId:int, movieId:int, rating:float, timestamp:long);
-ILLUSTRATE A;
-B = FILTER A BY rating>0.5 AND rating<5.0;
-ILLUSTRATE B;
-C = GROUP B BY userId;
-ILLUSTRATE C;
-D = FOREACH C GENERATE group AS userId, AVG(B.rating) AS avgRating;
-ILLUSTRATE D;
-E = ORDER D BY avgRating DESC;
-DUMP E;
-EXPLAIN E;
+B = GROUP A BY userId;
+C = FOREACH B GENERATE group AS userId, COUNT(A) AS cnt;
+D = FILTER C BY cnt > 100;
+EXPLAIN D;
+
+E = GROUP A BY movieID;
+F = FOREACH E GENERATE COUNT(A);
+EXPLAIN F;
+
+ = LOAD '/home/alban/telecom/dk/architectures/lab/3/ml-20m/movies.csv'
+	USING PigStorage(',')
+	AS (movieID:int, title:chararray, genres:chararray);
+ = LOAD '/home/alban/telecom/dk/architectures/lab/3/ml-20m/tags.csv'
+	USING PigStorage(',')
+	AS (userId:int, movieId:int, tag:chararray, timestamp:long);
