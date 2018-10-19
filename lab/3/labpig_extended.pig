@@ -10,9 +10,15 @@ E = GROUP A BY movieId;
 F = FOREACH E GENERATE COUNT(A);
 EXPLAIN F;
 
-Y = LOAD '/home/alban/telecom/dk/architectures/lab/3/ml-20m/movies.csv'
+G = LOAD '/home/alban/telecom/dk/architectures/lab/3/ml-20m/movies.csv'
 	USING PigStorage(',')
-	AS (movieID:int, title:chararray, genres:chararray);
-Z = LOAD '/home/alban/telecom/dk/architectures/lab/3/ml-20m/tags.csv'
+	AS (movieId:int, title:chararray, genres:chararray);
+H = LOAD '/home/alban/telecom/dk/architectures/lab/3/ml-20m/tags.csv'
 	USING PigStorage(',')
 	AS (userId:int, movieId:int, tag:chararray, timestamp:long);
+I = JOIN A BY movieId, G BY movieId;
+J = FILTER I BY (genres matches '.*Documentary.*');
+K = GROUP J ALL;
+L = FOREACH K GENERATE AVG(J.A::rating);
+ILLUSTRATE L;
+EXPLAIN L;
