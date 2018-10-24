@@ -1,5 +1,5 @@
 # Lloyd's algorithm for k-means clustering.
-lloydkmeans <- function(k = 5, X, max_iter = 10)
+lloydkmeans <- function(X, k = 5, max_iter = 10)
 {
 	m <- as.integer(nrow(X))
 	cl <- array(-1, dim = m)
@@ -16,8 +16,8 @@ lloydkmeans <- function(k = 5, X, max_iter = 10)
 			}
 			for (l in 1:k) {
 				c <- X[cl == l, , drop = FALSE]
-				if (length(c) == 0) next
-				cen[l,] <- colSums(c) / length(c)
+				if (nrow(c) == 0) next
+				cen[l,] <- (colSums(c) / nrow(c))
 			}
 		}
 	}
