@@ -15,3 +15,7 @@ __Note__
 I modified the `write` C function to write the output in `argv[2]` to help
 automation, which explains its different use in the `lab.sh` script.
 
+At the time, the k-means take hours to run on my 12 years old thinkpad, so I do
+not yet have the outputs. Everything has been tested on 20 lines long test
+files and runs.
+
