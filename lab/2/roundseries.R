@@ -1,7 +1,7 @@
 # Execute Lloyd's k-means on a serie and replace each value by its prototype.
 # The serie is read from in and the result is written in out.
 
-if (!exists("lloydkmenas", mode = "function")) source("lloydkmeans.R")
+if (!exists("lloydkmeans", mode = "function")) source("lloydkmeans.R")
 
 roundseries <- function(input, output, k)
 {
