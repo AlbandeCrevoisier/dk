@@ -1,0 +1,2 @@
+all:
+	Rscript lab.R
