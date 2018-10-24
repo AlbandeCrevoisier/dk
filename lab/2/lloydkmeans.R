@@ -21,4 +21,5 @@ lloydkmeans <- function(k = 5, X, max_iter = 10)
 			}
 		}
 	}
+	structure(list(cen = cen, cl =  cl))
 }
