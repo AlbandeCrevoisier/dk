@@ -2,6 +2,7 @@
 
 ## Exercise 0 ##
 
+```
 http://CannesFilmFestival -- http://date -> http://1994
                           |- http://film -> http://PulpFiction -- http://date -> http://1994
                           |                                    |- http://directedBy -> http://QuentinTarantino
@@ -16,9 +17,11 @@ http://CannesFilmFestival -- http://date -> http://1997
 http://SaturdayNightFever -- http://date -> http://1977
                           |- http://directedBy -> http://JohnBadham
                           |- http://starring -> http://JohnTravolta
+```
 
 ## Exercise 1 ##
 
+```
 @prefix res: <http://dbpedia.org/ressource/>
 @prefix onto: <http://dbpedia.org/ontology/>
 @prefix t: <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -27,6 +30,7 @@ res:JohnTravolta t: onto:Actor
 res:JohnTravolta t: onto:Producer
 res:JohnTravolta onto:starring res:Basic(film)
 res:JohnTravolta onto:starring res:Shout(film)
+```
 
 ## Exercise 2 ##
 
@@ -45,6 +49,7 @@ mercury, venus, earth, moon, mars, phobos, deimos
 ## Exercise 3 ##
 
 * Name of all movies.
+```
 PREFIX ex: <http://example.org/movies/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -53,9 +58,11 @@ WHERE {
   ?movie rdf:type ex:Movie .
   ?movie rdfs:label ?name
 }
+```
 
 * Names of movies and directors sorting in descending order by the year the
 movie appeared.
+```
 PREFIX ex: <http://example.org/movies/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -70,8 +77,10 @@ WHERE {
   ?director foaf:familyName ?dir
 }
 ORDER BY DESC(?date)
+```
 
 * Names and directors of all movies before 1996.
+```
 PREFIX ex: <http://example.org/movies/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -86,8 +95,10 @@ WHERE {
   ?director foaf:familyName ?dir
   FILTER (?date < "1996"^^xsd:gYear)
 }
+```
 
 * Names of all movies whose genre is Crime.
+```
 PREFIX ex: <http://example.org/movies/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -97,8 +108,10 @@ WHERE {
   ?movie ex:genre ex:Crime .
   ?movie rdfs:label ?name
 }
+```
 
 * Names of all actors who were above 50 in 2016.
+```
 PREFIX ex: <http://example.org/movies/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -111,8 +124,10 @@ WHERE {
   ?actor ex:birthYear ?bday
   FILTER (?bday > "1966"^^xsd:gYear)
 }
+```
 
 * Names of all movies whose director were above 70 in 2016.
+```
 PREFIX ex: <http://example.org/movies/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -126,6 +141,7 @@ WHERE {
   ?director ex:birthYear ?bday
   FILTER (?bday > "1946"^^xsd:gYear)
 }
+```
 
 ## Exercise 4 ##
 
@@ -133,6 +149,7 @@ See 1.md & movies.ttl
 
 ## Exercise 5 ##
 
+```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dbp: <http://dbpedia.org/property/>
@@ -145,6 +162,7 @@ WHERE {
 }
 
 1m81
+```
 
 ## Exercie 6 ##
 
