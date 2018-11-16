@@ -8,3 +8,5 @@ With:
 
 0 startElement
 1 endElement
+
+Usage: [ program name ] [ xml_file ] [ xpath query ]
