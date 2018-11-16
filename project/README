@@ -1,1 +1,10 @@
-XPath project, done in Golang.
+XPath project.
+XML files are not provided as raw XML files, but rather as what a stream parser
+would yield:
+
+0|1 element
+
+With:
+
+0 startElement
+1 endElement
