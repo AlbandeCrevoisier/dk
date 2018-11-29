@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<articles>
+  <article title="News 1">
+    <tag name="tag1" />
+    <tag name="tag2" />
+    <body>This is the first news.</body>
+  </article>
+  <article title="News 2">
+    <tag name="tag1" />
+    <body>This is the second news.</body>
+  </article>
+  <article title="News 3">
+    <tag name="tag2" />
+    <tag name="tag3" />
+    <body>This is the third news.</body>
+  </article>
+</articles>
