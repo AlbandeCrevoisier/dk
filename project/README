@@ -1,0 +1,17 @@
+XPath project.
+XML files are not provided as raw XML files, but rather as what a stream parser
+would yield:
+
+0|1 element
+
+With:
+
+0 startElement
+1 endElement
+
+Usage: [ program name ] [ xml_file ] [ xpath query ]
+
+To build the project, just type make .
+The Makefile also includes:
+clean : cleans the directory.
+test: runs some tests by the code.

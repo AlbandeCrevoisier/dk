@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tree SYSTEM "tree.dtd">
+<a>
+  <b>
+    <c>
+      <d/>
+    </c>
+    <f/>
+    <c/>
+    <f/>
+    <c>
+      <d/>
+    </c>
+    <f/>
+  </b>
+  <e>
+    <d/>
+    <c>
+      <d/>
+    </c>
+    <c/>
+  </e>
+</a>

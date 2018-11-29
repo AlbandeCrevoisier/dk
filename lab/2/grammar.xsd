@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Files">
+    <xs:sequence>
+      <xs:element name="file" type="File" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="person" type="Patient" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="person" type="Doctor" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="File">
+    <xs:sequence>
+      <xs:element name="consultation" type="Consultation" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Consultation">
+    <xs:sequence>
+      <xs:element name="symptom" minOccurs="1" maxOccurs="unbounded" />
+      <xs:element name="prescription" type="Prescription" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Prescription">
+    <xs:sequence>
+      <xs:element name="medication" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Patient">
+    <xs:sequence>
+      <xs:element name="fname" />
+      <xs:element name="lname" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Doctor">
+    <xs:sequence>
+      <xs:element name="fname" />
+      <xs:element name="lname" />
+      <xs:element name="telnum" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
