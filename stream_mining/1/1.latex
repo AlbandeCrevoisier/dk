@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\title{Massive Online Analysis - Lab 1}
+\date{}
+\author{Alban de Crevoisier}
+
+\begin{document}
+\maketitle
+\newpage
+
+Each classifier is used with its default settings.
+
+
+\begin{tabular}{c | c}
+  Classifier & Accuracy (\%) \\
+  \hline
+  Naive Bayes & 61 \\
+  Perceptron & 82 \\
+  SGDMultiClass* & 89 \\
+  AWE & 81 \\
+  MultiLabelHoeffding & 61 \\
+  HoeffdingAdaptiveTree & 82 \\
+  HoeffdingTree & 81 \\
+  RandomHoeffdingTree & 65 \\
+\end{tabular}
+  
+
+\end{document}
+
