@@ -6,24 +6,119 @@
 
 \begin{document}
 \maketitle
-\newpage
+For now, let's explore most classifiers. For now, we'll only select them based
+on accuracy, not cost.
+\mbox{} \\
 
-Each classifier is used with its default settings.
-
-
-\begin{tabular}{c | c}
+Each classifier is used with its default settings: \\
+\begin{tabular}{l | c}
   Classifier & Accuracy (\%) \\
   \hline
   Naive Bayes & 61 \\
   Perceptron & 82 \\
-  SGDMultiClass* & 89 \\
+  SGDMultiClass & 62 \\
   AWE & 81 \\
   MultiLabelHoeffding & 61 \\
   HoeffdingAdaptiveTree & 82 \\
   HoeffdingTree & 81 \\
   RandomHoeffdingTree & 65 \\
 \end{tabular}
-  
+\mbox{} \\
+
+With saner defaults: \\
+\begin{tabular}{l | c | l}
+  Classifier & Accuracy (\%) & Param \\
+  \hline
+  Perceptron & 82 & learning rate 0.9 \\
+  SGD & 78 & learning rate 0.1, regularization 0.1 \\
+  SGDMultiClass & 89 & learning rate 0.1, regularization 0.1 \\
+\end{tabular}
+\mbox{} \\
+
+
+Considering these exploration results, let's select perceptron, AWE,
+multi-class stochastic gradient descent, Hoeffding tree and Hoeffding adaptive
+tree.
+\mbox{} \\
+
+
+\paragraph{percepton}
+
+\begin{tabular}{c | c}
+  learning rate & Accuracy (\%) \\
+  \hline
+  0.01 & 74 \\
+  0.3 & 82 \\
+  0.5 & 82 \\
+  1 & 82 \\
+  2 & 74 \\
+\end{tabular}
+\mbox{} \\
+It's doubtful that we can get better accuracy than 82.4%. \\
+Ressources: cpu time: 10.39s, ram-cost: 8E-8. \\
+\mbox{} \\
+
+
+
+\paragraph{SGDMultiClass}
+\begin{tabular}{c | c}
+  learning rate & lambda regularization & Accuracy (\%) \\
+  0.01 & 0.01 & 80 \\
+  0.01 & 0.05 & 87 \\
+  0.05 & 0.01 & 80 \\
+  0.05 & 0.05 & 87 \\
+  0.05 & 0.1 & 89 \\
+  0.1 & 0.05 & 87 \\
+  0.1 & 0.1 & 89 \\
+  0.1 & 0.2 & 91 \\
+  0.2 & 0.1 & 89 \\
+  0.2 & 0.2 91 \\
+  \hline
+\end{tabular}
+\mbox{} \\
+Best : 91.4%, cpu time: 11.29s, ram-cost: 8.9E-8. \\
+\mbox{} \\
+
+
+\paragraph{Hoeffding tree}
+\begin{tabular}{c | c}
+  Split confidence & Accuracy (\%) \\
+  \hline
+  0.01 & 85 \\
+  0.02 & 85 \\
+  0.05 & 86 \\
+  0.1 & 87 \\
+  0.2 & 88 \\
+  0.5 & 89 \\
+  0.7 & 90 \\
+  0.9 & 90 \\
+  0.95 & 90 \\
+\end{tabular}
+\mbox{} \\
+Best : 90.3%, cpu time: 36.10s, ram-cost: 1.4E-4. \\
+\mbox{} \\
+
+
+\paragraph{Hoeffding adaptive tree}
+\begin{tabular}{c | c}
+  Split confidence & Accuracy (\%) \\
+  \hline
+  0.8 & 90 \\
+  0.9 & 90 \\
+  0.95 & 90 \\
+  0.99 & 90 \\
+\end{tabular}
+\mbox{} \\
+Best : 90.3%, cpu time: 1min9s, ram-cost: 6.7E-6. \\
+\mbox{} \\
+
+
+\paragraph{AWE}
+Let's use our best classifier so far the the AWE: SDGMultiClass. \\
+This yields an accuracy of 57%, when the defaults (Naive Bayes) gave 80%.
+Ressources hungry: 5m33 for naive Bayes and 1.3E-4 ram-cost.
+\mbox{} \\
+
 
 \end{document}
 
